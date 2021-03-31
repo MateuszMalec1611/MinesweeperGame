@@ -8,9 +8,18 @@ export class UI {
         easyButton: '[data-button-easy]',
         normalButton: '[data-button-normal]',
         expertButton: '[data-button-expert]',
+        customButton: '[data-button-custom]',
         modal: '[data-modal]',
         modalHeader: '[data-modal-header]',
         modalButton: '[data-modal-button]',
+
+        optionsMenu: '[data-menu-options]',
+        errorMenu: '[data-menu-error]',
+        inputCols: '[data-input-cols]',
+        inputRows: '[data-input-rows]',
+        inputMines: '[data-input-mines]',
+        formAdd: '[data-form-add]',
+        formCancel: '[data-form-cancel]',
     }
 
     getElement(selector) {

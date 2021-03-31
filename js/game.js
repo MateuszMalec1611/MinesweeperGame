@@ -4,6 +4,7 @@ import {Counter} from './Counter.js';
 import {Timer} from './Timer.js';
 import {ResetButton} from './ResetButton.js';
 import {Modal} from './Modal.js';
+import {CustomOptions} from './CustomOptions.js';
 
 class Game extends UI {
     #config = {
@@ -21,13 +22,14 @@ class Game extends UI {
             rows: 16,
             cols: 30,
             mines: 99
-        }
+        },
     }
-
+    
     #counter = new Counter();
     #timer = new Timer();
     #modal = new Modal();
-
+    #customOptions = new CustomOptions();
+    
     #isGameFinished = false;
     #numberOfRows = null;
     #numberOfCols = null;
@@ -44,6 +46,9 @@ class Game extends UI {
         easy: null,
         normal: null,
         expert: null,
+        custom: null,
+        addBtn: null,
+        CancelBtn: null,
         reset: new ResetButton(),
     }
 
@@ -113,6 +118,9 @@ class Game extends UI {
         this.#buttons.easy = this.getElement(this.UiSelectors.easyButton);
         this.#buttons.normal = this.getElement(this.UiSelectors.normalButton);
         this.#buttons.expert = this.getElement(this.UiSelectors.expertButton);
+        this.#buttons.custom = this.getElement(this.UiSelectors.customButton);
+        this.#buttons.addBtn = this.getElement(this.UiSelectors.formAdd);
+        this.#buttons.cancelBtn = this.getElement(this.UiSelectors.formCancel);
     }
 
     #addCellsEventListeners() {
@@ -149,6 +157,27 @@ class Game extends UI {
             this.#config.expert.cols, 
             this.#config.expert.mines)
             );
+        this.#buttons.custom.addEventListener('click', () => {
+            this.#timer.stopTimer();
+            this.#customOptions.toggleMenu();
+        });
+        this.#buttons.addBtn.addEventListener('click', e => {
+            e.preventDefault(); 
+            if(this.#customOptions.checkInputs()) {
+                this.#customOptions.toggleMenu();
+                this.#handleNewGameClick(
+                    this.#customOptions.rowsInput.value,
+                    this.#customOptions.colsInput.value,
+                    this.#customOptions.minesInput.value
+                );
+            }  
+          return;
+        });
+        this.#buttons.cancelBtn.addEventListener('click', e => {
+            e.preventDefault();
+            this.#customOptions.toggleMenu();
+            this.#handleNewGameClick();
+        });
         this.#buttons.reset.element.addEventListener('click', () => this.#handleNewGameClick());
     }
 
