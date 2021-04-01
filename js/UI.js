@@ -20,6 +20,7 @@ export class UI {
         inputMines: '[data-input-mines]',
         formAdd: '[data-form-add]',
         formCancel: '[data-form-cancel]',
+        formRevealMines: '[data-input-reveal-mines]',
     }
 
     getElement(selector) {

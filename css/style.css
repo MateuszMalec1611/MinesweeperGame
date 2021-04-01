@@ -281,6 +281,13 @@ html {
     text-align: center;
 }
 
+.menu-options__checkbox {
+    align-self: flex-end;
+    margin-left: 1.6rem;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
 .menu-options__form-button {
     margin-top: 2rem;
     padding: 1rem 2rem;

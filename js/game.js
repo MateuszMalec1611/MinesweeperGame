@@ -228,6 +228,7 @@ class Game extends UI {
                 minesToPlace--;
             }
         }
+        if(this.#customOptions.revealMinesBtn.checked) this.#revealMines();
     }
 
     #handleCellContextMenu = e => {
@@ -265,7 +266,7 @@ class Game extends UI {
     }
 
     #clickCell(cell) {
-        if(cell.isFlagged || this.#isGameFinished) return;
+        if(cell.isFlagged || this.#isGameFinished || cell.isReveal) return;
         if(cell.isMine) {
             this.#endGame(false);
         }
@@ -311,10 +312,10 @@ class Game extends UI {
     #getRandomInteger(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
+
 }
 
 window.onload = function () {
     const game = new Game();
-
     game.initializeGame();
 }

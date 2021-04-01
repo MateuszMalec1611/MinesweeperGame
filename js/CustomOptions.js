@@ -12,6 +12,7 @@ export class CustomOptions extends UI {
     minesInput = this.getElement(this.UiSelectors.inputMines);
     addBtn = this.getElement(this.UiSelectors.formAdd);
     cancelBtn = this.getElement(this.UiSelectors.formCancel);
+    revealMinesBtn = this.getElement(this.UiSelectors.formRevealMines);
 
     toggleMenu() {
         this.#optionsMenu.classList.toggle('hide');
