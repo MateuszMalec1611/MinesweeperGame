@@ -1,7 +1,7 @@
 import {UI} from './UI.js';
 
 export class CustomOptions extends UI {
-    #minRows = 2;
+    #minRows = 1;
     #minCols = 8;
     #minMines = 1;
 
