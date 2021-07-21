@@ -1,7 +1,8 @@
 # MinesweeperGame
 Download project and start it by a live server and have fun! You can also customise level stages
-{
 
+
+```{
 "files.autoSave": "afterDelay",
 "workbench.iconTheme": "material-icon-theme",
 "editor.wordWrap": "on",
